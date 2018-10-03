@@ -3,8 +3,10 @@ pipeline {
     stages{ 
  
   stage ("mvn clean") {
+      steps {
   sh "mvn clean install -Dmaven.test.skip=true -Dfindbugs.skip=true"
 }
+  }
         
         stage('Build'){
             steps {
