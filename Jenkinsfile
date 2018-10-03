@@ -6,7 +6,6 @@ pipeline {
                 step([$class: 'WsCleanup'])
                 checkout scm
             }
-        }
         stage('Build'){
             steps {
                 sh 'mvn clean test'
@@ -19,4 +18,5 @@ pipeline {
             }
         }
     }
+}
 }
