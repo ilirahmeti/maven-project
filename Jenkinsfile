@@ -1,6 +1,12 @@
 pipeline {
     agent any
-    stages{
+    stages{ 
+        stage('Git') {
+            steps {
+                step([$class: 'WsCleanup'])
+                checkout scm
+            }
+        }
         stage('Build'){
             steps {
                 sh 'mvn clean test'
