@@ -1,16 +1,9 @@
 pipeline {
     agent any
-    stages{ 
- 
-  stage ("mvn clean") {
-      steps {
-  sh "mvn clean install -Dmaven.test.skip=true -Dfindbugs.skip=true"
-}
-  }
-        
+    stages{
         stage('Build'){
             steps {
-                sh 'mvn clean test'
+                sh 'mvn clean package'
             }
             post {
                 success {
